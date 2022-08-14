@@ -1,0 +1,14 @@
+{
+  "config_ios" : {
+    "NSCameraUsageDescription": "The Bible Study app offered free with commentary like Rashi, Sforno and Onkelos.",
+    "CFBundleDisplayName": "히브리어성경",
+    "CFBundleName": "히브리어성경"
+  },
+  "config_android" : {
+    "app_name": "히브리어성경"
+  },
+  "app" : {
+    "HAVE_MAIL_TITLE": "You have mail.",
+    "HAVE_MAIL_MSG": "%1$@ has you a message titled \\\"%2$@\\\""
+  }
+}

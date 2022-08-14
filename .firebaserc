@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "bible-commentary-13d9a",
+    "hebrewbible": "bible-commentary-13d9a"
+  },
+  "targets": {}
+}

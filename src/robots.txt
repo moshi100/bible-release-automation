@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.hebrew-bible.com/sitemaps/en.xml
+Sitemap: https://www.hebrew-bible.com/sitemaps/he.xml
+Sitemap: https://www.hebrew-bible.com/sitemaps/fr.xml
+Sitemap: https://www.hebrew-bible.com/sitemaps/es.xml
+Sitemap: https://www.hebrew-bible.com/sitemaps/pt.xml
+Sitemap: https://www.hebrew-bible.com/sitemaps/pl.xml
+Sitemap: https://www.hebrew-bible.com/sitemaps/kr.xml
+Sitemap: https://www.hebrew-bible.com/sitemaps/ru.xml
+Sitemap: https://www.hebrew-bible.com/sitemaps/it.xml
+Sitemap: https://www.hebrew-bible.com/sitemaps/de.xml

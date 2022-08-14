@@ -1,0 +1,8 @@
+.rtl {
+  font-family: var(--ion-font-family);
+}
+.rtl-text {
+  app-index-bar {
+    direction: rtl;
+  }
+}

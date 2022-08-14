@@ -1,0 +1,158 @@
+
+body.night-mode {
+  --font-color-1: #FFF;
+  --bg-color: #071747;
+  --bg-color-light: #F9E005;
+  --bg-color-lite:#161d31;//#2a2e3e;
+  --bg-color-lite-2: #cecece;
+  --bg-color-btn-1:#424242;
+  --bg-global: #03091c;
+  --title-border: #9CA2B5;
+  --button-border-color: #D4D4D4;
+  --icon-color: #FBFBFB;
+  --icon-color-active: #FBFBFB;
+  --color-azure: #424242;
+  --text-color-white: #071747;
+  --bg-color-gray: #f6f6f6;
+  --color-blue: #f6f6f6;
+  --color-black: #dadcdf;
+  --color-black-2: #D9D9D9;
+  --color-gray: #8f9295;
+  --color-gray-2: #bdc0c7;
+  --color-gray-3: #424242;
+  --color-gray-5: #9AA0B4;
+  --text-color-1: #e6e6e6;
+  --button-normal-border: #f2f2f2;
+  --button-normal-color: #f2f2f2;
+  --bg-lite-1: #06102f;
+  --color-blue-white: #FFF;
+  --color-yellow-blue: #071747;
+  --color-blue-yellow: #F9E005;
+  --bg-bold-items-1:#161d31;
+  --black-white: #FFF;
+  --white-black: #000;
+  --play-border: #FFF;
+  --play-bg: #071747;
+  --bg-toolbar-btn: #27396D;
+}
+
+.rtl {
+  --ion-font-family-verse: 'NotoSerifHebrew_SemiCondensed', 'RobotoSlabLite';
+}
+
+
+:root {
+  --ion-background-color: #FFF;
+  --ion-background-color-opacity: #FFF0;
+
+  --ion-font-family: 'Assistant', 'CormorantGaramond', 'NotoSerifHebrew_SemiCondensed';
+  --ion-font-family-verse: 'NotoSerifHebrew_SemiCondensed', 'RobotoSlabLite';
+
+  --ion-text-color: #2B385B;
+
+  --font-color-1: #404345;
+
+  --color-azure: #e2e9ff; //F1F4FE
+  --color-black: #25282b;
+  --color-black-2: #262626;
+  --color-gray: #a0a4a8;
+  --color-gray-2: #71747b;
+  --color-gray-3: #e7e8ed;
+  --color-gray-3-fixed: #e7e8ed;
+  --color-gray-4: #CACCCF;
+  --color-gray-5: #9AA0B4;
+  --color-gray-5-fixed: #9AA0B4;
+  --color-black-fixed: #25282b;
+  --color-blue: #071747;
+  --color-blue-fixed: #4D6DC7;
+  --coler-blue-2-fixed: #27396D;
+  --color-blue-white: #071747;
+  --color-blue-lite-fixed: #228BC7;
+  --color-turquoise-fixed: #0CA6C8;
+  --color-red-fixed: #EB5757;
+  
+
+  --bg-global: #FAFAFA;
+  --title-border: #071747;
+  --text-color-1: #071747;
+  --text-color-2-fixed: #8B92B0;
+
+  --bg-lite-1: #f4f6fc;
+  --bg-lite-1-fixed: #f4f6fc;
+
+  --bg-color: #071747;
+  --bg-color-light: #071747;
+  --bg-color-fixed: #071747;
+  --bg-color-lite: #ECF0F3;
+  --bg-color-lite-2: #fff;
+  --bg-color-gray-fixed: #f6f6f6;
+  --bg-color-btn-1:#071747;
+
+  --color-yellow-fixed: #F9E005;
+  --text-color-white: #FFF;
+  --color-yellow-blue: #F9E005;
+  --color-blue-yellow: #071747;
+
+  --button-border-color: #D4D4D4;
+  --text-color-active-fixed: #FFF;
+  --line-color-fixed: #3d496f;
+  
+  --icon-color: #071747;
+  --icon-color-blue-fixed: #071747;
+  --icon-color-white-fixed: #FBFBFB;
+  --icon-color-active: #FBFBFB;
+  --ion-color-base: #444649;
+
+  --button-bold-bg: #364269;
+  --button-bold-color: #FFF;
+  --button-normal-border: #364269;
+  --button-normal-color: #364269;
+  --button-no-border-color: #9aa0b4;
+  --black-white: #000;
+  --white-black: #FFF;
+  --play-border: #071747;
+  --play-bg: #FFF;
+  
+  --bg-toolbar-btn: #dfdfdf;
+
+  --bg-bold-items-1:#f3f6fc;
+
+  --item-color-1-fixed: #99E276;
+  --item-color-2-fixed: #E27676;
+  --item-color-3-fixed: #769BE2;
+  --item-color-4-fixed: #A584FF;
+  --item-color-5-fixed: #76E2E2;
+  --item-color-6-fixed: #E2A376;
+  --item-color-7-fixed: #F2E6A7;
+
+  //book colors
+  --book-color-brown-1: #3F120F;
+  --book-color-brown-2: #632623;
+  --book-color-brown-3: #7F362F;
+  --book-color-brown-4: #BD6C53;
+
+  --book-color-turquoise-1: #04272F;
+  --book-color-turquoise-2: #255661;
+  --book-color-turquoise-3: #397B89;
+  --book-color-turquoise-4: #70ACB9;
+  
+  --book-color-orange-1: #6C3005;
+  --book-color-orange-2: #874210;
+  --book-color-orange-3: #AD5C23;
+  --book-color-orange-4: #E58C4C;
+  
+  --book-color-green-1: #0A3D05;
+  --book-color-green-2: #1A5B13;
+  --book-color-green-3: #2C7D25;
+  --book-color-green-4: #4DA744;
+  
+  --book-color-purple-1: #310545;
+  --book-color-purple-2: #4D1567;
+  --book-color-purple-3: #6A2889;
+  --book-color-purple-4: #A859CD;
+  
+  --book-color-gray-1: #464646;
+  --book-color-gray-2: #676666;
+  --book-color-gray-3: #8B8B8B;
+  --book-color-gray-4: #B7B7B7;
+}

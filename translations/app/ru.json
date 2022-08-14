@@ -1,0 +1,14 @@
+{
+  "config_ios" : {
+    "NSCameraUsageDescription": "Бесплатно изучайте Библию на иврите с комментариями и переводом каждого стиха!",
+    "CFBundleDisplayName": "Изучение Библии на иврите",
+    "CFBundleName": "Изучение Библии на иврите"
+  },
+  "config_android" : {
+    "app_name": "Изучение Библии на иврите"
+  },
+  "app" : {
+    "HAVE_MAIL_TITLE": "You have mail.",
+    "HAVE_MAIL_MSG": "%1$@ has you a message titled \\\"%2$@\\\""
+  }
+}

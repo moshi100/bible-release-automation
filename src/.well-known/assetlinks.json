@@ -1,0 +1,5 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target" : { "namespace": "android_app", "package_name": "com.bible.studycommentary",
+               "sha256_cert_fingerprints": ["SHA256: 16:05:AF:E9:14:15:EC:7C:64:5C:6F:C3:3F:F0:03:6A:0F:21:36:19:D0:E5:5D:9D:28:46:9F:2B:93:2F:81:A5"] }
+}]

@@ -1,0 +1,14 @@
+{
+  "config_ios" : {
+    "NSCameraUsageDescription": "Etudiez gratuitement la Bible hébraïque avec commentaire et traduction.",
+    "CFBundleDisplayName": "La Bible Hébreu",
+    "CFBundleName": "La Bible Hébreu"
+  },
+  "config_android" : {
+    "app_name": "La Bible Hébreu"
+  },
+  "app" : {
+    "HAVE_MAIL_TITLE": "You have mail.",
+    "HAVE_MAIL_MSG": "%1$@ has you a message titled \\\"%2$@\\\""
+  }
+}

@@ -1,0 +1,7 @@
+config.xml merge=ignore
+package.json merge=ignore
+package-lock.json merge=ignore
+src/assets/* merge=ignore
+resources/* merge=ignore
+translations/* merge=ignore
+ul_web_hooks/* merge=ignore

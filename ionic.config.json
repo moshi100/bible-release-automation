@@ -1,0 +1,7 @@
+{
+  "name": "hebrewBible",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
