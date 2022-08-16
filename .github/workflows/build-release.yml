@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm install --force
-          npm install -g @ionic/cli
+          npm install -g ionic
 
       - name: Build artifact
         run: ionic cordova build ios
