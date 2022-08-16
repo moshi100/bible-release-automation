@@ -19,7 +19,9 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install -g --force
+        run: |
+          npm install --force
+          npm install -g @ionic/cli
 
       - name: Build artifact
         run: ionic cordova build ios
