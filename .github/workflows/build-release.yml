@@ -13,16 +13,6 @@ jobs:
     runs-on: macos-12
     steps:
       - uses: actions/checkout@v3
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: "npm"
-
-      - name: Install dependencies
-        run: |
-          npm install -g ionic
-          npm install --force
               
       - name: Download Provisioning Profiles
         id: provisioning-profiles
@@ -33,6 +23,22 @@ jobs:
           issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
           api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+
+      - name: Import code signing certificate
+        uses: Apple-Actions/import-codesign-certs@v1
+        with:
+          p12-file-base64: ${{ secrets.CERTIFICATES_FILE_BASE64 }}
+          p12-password: ${{ secrets.CERTIFICATES_PASSWORD }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "npm"
+
+      - name: Install dependencies
+        run: |
+          npm install -g ionic
+          npm install --force
     
       - name: List provisioning profiles
         run: echo ${{ steps.provisioning-profiles.outputs.profiles }}
