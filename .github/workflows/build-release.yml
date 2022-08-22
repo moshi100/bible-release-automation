@@ -23,9 +23,6 @@ jobs:
         run: |
           npm install -g ionic
           npm install --force
-
-      - name: Build artifact
-        run: ionic cordova build ios
               
       - name: Download Provisioning Profiles
         id: provisioning-profiles
@@ -39,3 +36,6 @@ jobs:
     
       - name: List provisioning profiles
         run: echo ${{ steps.provisioning-profiles.outputs.profiles }}
+
+      - name: Build artifact
+        run: ionic cordova build ios --device
