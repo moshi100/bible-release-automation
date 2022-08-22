@@ -23,6 +23,9 @@ jobs:
           issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
           api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+    
+      - name: List provisioning profiles
+        run: echo ${{ steps.provisioning-profiles.outputs.profiles }}
 
       - name: Import code signing certificate
         uses: Apple-Actions/import-codesign-certs@v1
@@ -39,9 +42,6 @@ jobs:
         run: |
           npm install -g ionic
           npm install --force
-    
-      - name: List provisioning profiles
-        run: echo ${{ steps.provisioning-profiles.outputs.profiles }}
 
       - name: Build artifact
-        run: ionic cordova build ios --device
+        run: ionic cordova build ios --device --developmentTeam="Moshe Cohen"
