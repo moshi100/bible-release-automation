@@ -62,16 +62,16 @@ jobs:
         run: |
           npm install -g ionic
 
-      - name: Prepare ios platform
-        run: ionic cordova prepare ios --no-interactive --confirm
+      # - name: Prepare ios platform
+      #   run: ionic cordova prepare ios --no-interactive --confirm
       
-      - name: Build artifact
-        env:
-          CODE_SIGN_IDENTITY: “iPhone Developer”
-          DEVELOPMENT_TEAM: "Moshe Cohen"
-        run: |
-          cd platforms/ios
-          xcodebuild -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" -sdk iphoneos -configuration AppStoreDistribution archive -archivePath "build/$APP_NAME.xcarchive"
+      # - name: Build artifact
+      #   env:
+      #     CODE_SIGN_IDENTITY: “iPhone Developer”
+      #     DEVELOPMENT_TEAM: "Moshe Cohen"
+      #   run: |
+      #     cd platforms/ios
+      #     xcodebuild -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" -sdk iphoneos -configuration AppStoreDistribution archive -archivePath "build/$APP_NAME.xcarchive"
       
       # - name: Upload to TestFlight
       #   uses: Apple-Actions/upload-testflight-build@v1
