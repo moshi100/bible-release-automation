@@ -62,21 +62,21 @@ jobs:
         run: |
           npm install -g ionic
 
-      # - name: Prepare ios platform
-      #   run: ionic cordova prepare ios --no-interactive --confirm
+      - name: Prepare ios platform
+        run: ionic cordova prepare ios --no-interactive --confirm
       
-      # - name: Build artifact
-      #   env:
-      #     CODE_SIGN_IDENTITY: “iPhone Developer”
-      #     DEVELOPMENT_TEAM: "Moshe Cohen"
-      #   run: |
-      #     cd platforms/ios
-      #     xcodebuild -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" -sdk iphoneos -configuration AppStoreDistribution archive -archivePath "build/$APP_NAME.xcarchive"
+      - name: Build artifact
+        env:
+          CODE_SIGN_IDENTITY: “iPhone Developer”
+          DEVELOPMENT_TEAM: "Moshe Cohen"
+        run: |
+          cd platforms/ios
+          xcodebuild -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" -sdk iphoneos -configuration AppStoreDistribution archive -archivePath "build/$APP_NAME.xcarchive"
       
-      # - name: Upload to TestFlight
-      #   uses: Apple-Actions/upload-testflight-build@v1
-      #   with:
-      #     app-path: .build/Artifacts/Example-iOS.ipa/Example-iOS.ipa
-      #     issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
-      #     api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
-      #     api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+      - name: Upload to TestFlight
+        uses: Apple-Actions/upload-testflight-build@v1
+        with:
+          app-path: .build/Artifacts/Example-iOS.ipa/Example-iOS.ipa
+          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
