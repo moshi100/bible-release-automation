@@ -28,7 +28,9 @@ jobs:
           api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
     
       - name: List provisioning profiles
-        run: echo ${{ steps.provisioning-profiles.outputs.profiles }}
+        run: |
+          echo "PROVISIONING_PROFILE=$(echo ${{ steps.provisioning-profiles.outputs.profiles }} | jq ' .uuid')" >> $GITHUB_ENV
+          
 
       - name: Import code signing certificate
         uses: Apple-Actions/import-codesign-certs@v1
@@ -68,7 +70,6 @@ jobs:
       - name: Build artifact
         env:
           CODE_SIGN_IDENTITY: “iPhone Developer”
-          DEVELOPMENT_TEAM: "Moshe Cohen"
         run: |
           cd platforms/ios
           xcodebuild -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" -sdk iphoneos -configuration AppStoreDistribution archive -archivePath "build/$APP_NAME.xcarchive"
