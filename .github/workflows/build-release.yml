@@ -8,6 +8,9 @@ on:
     branches:
       - master
 
+env:
+  APP_NAME: "Hebrew Bible Study"
+
 jobs:
   build:
     runs-on: macos-12
@@ -43,5 +46,17 @@ jobs:
           npm install -g ionic
           npm install --force
 
+      - name: Prepare ios platform
+        run: ionic cordova prepare ios
+      
       - name: Build artifact
-        run: ionic cordova build ios --device --developmentTeam="Moshe Cohen"
+        run: |
+          xcodebuild -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" -sdk iphoneos -configuration AppStoreDistribution archive -archivePath "build/$APP_NAME.xcarchive"
+      
+      # - name: Upload to TestFlight
+      #   uses: Apple-Actions/upload-testflight-build@v1
+      #   with:
+      #     app-path: .build/Artifacts/Example-iOS.ipa/Example-iOS.ipa
+      #     issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+      #     api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+      #     api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
