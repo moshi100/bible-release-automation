@@ -1,0 +1,16 @@
+{
+    "ios": {
+        "debug": {
+            "codeSignIdentity": "iPhone Developer",
+            "developmentTeam": "Moshe Cohen",
+            "packageType": "development",
+            "provisioningProfile": "da0da768-7593-4458-8803-5a34a3ae384c"
+        },
+        "release": {
+            "codeSignIdentity": "iPhone Distribution",
+            "developmentTeam": "Moshe Cohen",
+            "packageType": "app-store",
+            "provisioningProfile": "da0da768-7593-4458-8803-5a34a3ae384c"
+        }
+    }
+}

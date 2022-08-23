@@ -41,7 +41,11 @@ jobs:
         with:
           node-version: 18
           cache: "npm"
-      
+
+      - name: Install ionic cli
+        run: |
+          npm install -g ionic
+
       - name: Cache node modules
         id: cache-nodemodules
         uses: actions/cache@v3
@@ -59,22 +63,21 @@ jobs:
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: npm install --force
 
-      - name: Install ionic cli
-        run: |
-          npm install -g ionic
+      - name: Bulld ios platform artifact
+        run: ionic cordova build ios --no-build --prod --release --device --buildConfig build.json
 
-      - name: Prepare ios platform
-        run: ionic cordova prepare ios --no-interactive --confirm --no-build
+      # - name: Prepare ios platform
+      #   run: ionic cordova prepare ios --no-interactive --confirm --no-build
       
-      - name: Build artifact
-        run: |
-          cd platforms/ios
-          xcodebuild -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" -sdk iphoneos -configuration Release archive -archivePath "build/$APP_NAME.xcarchive" PROVISIONING_PROFILE="da0da768-7593-4458-8803-5a34a3ae384c" CODE_SIGN_IDENTITY="iPhone Developer"
+      # - name: Build artifact
+      #   run: |
+      #     cd platforms/ios
+      #     xcodebuild -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" -sdk iphoneos -configuration Release archive -archivePath "build/$APP_NAME.xcarchive" PROVISIONING_PROFILE="da0da768-7593-4458-8803-5a34a3ae384c" CODE_SIGN_IDENTITY="iPhone Developer"
       
-      - name: Upload to TestFlight
-        uses: Apple-Actions/upload-testflight-build@v1
-        with:
-          app-path: .build/Artifacts/Example-iOS.ipa/Example-iOS.ipa
-          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
-          api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
-          api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+      # - name: Upload to TestFlight
+      #   uses: Apple-Actions/upload-testflight-build@v1
+      #   with:
+      #     app-path: .build/Artifacts/Example-iOS.ipa/Example-iOS.ipa
+      #     issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+      #     api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+      #     api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
