@@ -66,6 +66,9 @@ jobs:
         run: ionic cordova prepare ios --no-interactive --confirm
       
       - name: Build artifact
+        env:
+          CODE_SIGN_IDENTITY: “iPhone Developer”
+          DEVELOPMENT_TEAM: "Moshe Cohen"
         run: |
           cd platforms/ios
           xcodebuild -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" -sdk iphoneos -configuration AppStoreDistribution archive -archivePath "build/$APP_NAME.xcarchive"
