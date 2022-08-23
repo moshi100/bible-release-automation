@@ -51,6 +51,7 @@ jobs:
       
       - name: Build artifact
         run: |
+          cd platforms/ios
           xcodebuild -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" -sdk iphoneos -configuration AppStoreDistribution archive -archivePath "build/$APP_NAME.xcarchive"
       
       # - name: Upload to TestFlight
