@@ -16,20 +16,19 @@ jobs:
     runs-on: macos-12
     steps:
       - uses: actions/checkout@v3
-              
+
       - name: Download Provisioning Profiles
         id: provisioning-profiles
         uses: apple-actions/download-provisioning-profiles@v1
-        with: 
-          bundle-id: 'com.ionicframework.biblecommentary'
-          profile-type: 'IOS_APP_STORE'
+        with:
+          bundle-id: "com.ionicframework.biblecommentary"
+          profile-type: "IOS_APP_STORE"
           issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
           api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
-    
+
       - name: List provisioning profiles
         run: echo ${{ steps.provisioning-profiles.outputs.profiles }}
-          
 
       - name: Import code signing certificate
         uses: Apple-Actions/import-codesign-certs@v1
@@ -64,16 +63,16 @@ jobs:
         run: npm install --force
 
       - name: Bulld ios platform artifact
-        run: ionic cordova build ios --no-build --prod --release --device --buildConfig build.json
+        run: ionic cordova build ios --device --buildConfig build.json
 
       # - name: Prepare ios platform
       #   run: ionic cordova prepare ios --no-interactive --confirm --no-build
-      
+
       # - name: Build artifact
       #   run: |
       #     cd platforms/ios
       #     xcodebuild -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" -sdk iphoneos -configuration Release archive -archivePath "build/$APP_NAME.xcarchive" PROVISIONING_PROFILE="da0da768-7593-4458-8803-5a34a3ae384c" CODE_SIGN_IDENTITY="iPhone Developer"
-      
+
       # - name: Upload to TestFlight
       #   uses: Apple-Actions/upload-testflight-build@v1
       #   with:
