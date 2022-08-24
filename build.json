@@ -1,11 +1,5 @@
 {
     "ios": {
-        "debug": {
-            "codeSignIdentity": "iPhone Developer",
-            "developmentTeam": "NGCHN95667",
-            "packageType": "development",
-            "provisioningProfile": "da0da768-7593-4458-8803-5a34a3ae384c"
-        },
         "release": {
             "codeSignIdentity": "iPhone Distribution",
             "developmentTeam": "NGCHN95667",

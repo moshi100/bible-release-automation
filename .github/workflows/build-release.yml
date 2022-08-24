@@ -63,7 +63,7 @@ jobs:
         run: npm install --force
 
       - name: Bulld ios platform artifact
-        run: ionic cordova build ios --device --buildConfig build.json
+        run: ionic cordova build ios --prod --relase --device --buildConfig build.json
 
       # - name: Prepare ios platform
       #   run: ionic cordova prepare ios --no-interactive --confirm --no-build
