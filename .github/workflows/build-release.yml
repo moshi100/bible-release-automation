@@ -67,7 +67,7 @@ jobs:
 
       - name: Set push notification capability
         run: |
-          /usr/libexec/PlistBuddy -c "Add :UIBackgroundModes array" "platforms/ios/Hebrew Bible Study/Entitlements-Release.plist || true"
+          /usr/libexec/PlistBuddy -c "Add :UIBackgroundModes array" "platforms/ios/Hebrew Bible Study/Entitlements-Release.plist" || true
           /usr/libexec/PlistBuddy -c "Add :UIBackgroundModes: string remote-notification" "platforms/ios/Hebrew Bible Study/Entitlements-Release.plist" || true
 
       - name: Bulld ios platform artifact
