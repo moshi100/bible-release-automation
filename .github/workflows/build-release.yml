@@ -72,7 +72,7 @@ jobs:
 
       - name: Bulld ios platform artifact
         run: |
-          ionic cordova build ios --prod --release --device --buildConfig build.json
+          ionic cordova build ios --prod --release --buildFlag="-allowProvisioningUpdates" --device --buildConfig build.json
 
       - name: Upload to TestFlight
         uses: Apple-Actions/upload-testflight-build@v1
