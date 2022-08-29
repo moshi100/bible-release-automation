@@ -67,8 +67,12 @@ jobs:
 
       - name: Set push notification capability
         run: |
-          /usr/libexec/PlistBuddy -c "Add :UIBackgroundModes array" "platforms/ios/Hebrew Bible Study/Entitlements-Release.plist" || true
-          /usr/libexec/PlistBuddy -c "Add :UIBackgroundModes: string remote-notification" "platforms/ios/Hebrew Bible Study/Entitlements-Release.plist" || true
+          /usr/libexec/PlistBuddy -c "Add aps-environment string development" "platforms/ios/Hebrew Bible Study/Hebrew Bible StudyRelease.entitlements" || true
+          /usr/libexec/PlistBuddy -c "Add :com.apple.developer.applesignin array" "platforms/ios/Hebrew Bible Study/Hebrew Bible StudyRelease.entitlements" || true
+          /usr/libexec/PlistBuddy -c "Add :com.apple.developer.applesignin: string Default" "platforms/ios/Hebrew Bible Study/Hebrew Bible StudyRelease.entitlements" || true
+          /usr/libexec/PlistBuddy -c "Add :com.apple.developer.associated-domains array" "platforms/ios/Hebrew Bible Study/Hebrew Bible StudyRelease.entitlements" || true
+          /usr/libexec/PlistBuddy -c "Add :com.apple.developer.associated-domains: string applinks:hebrew-bible.com" "platforms/ios/Hebrew Bible Study/Hebrew Bible StudyRelease.entitlements" || true
+          /usr/libexec/PlistBuddy -c "Add :com.apple.developer.associated-domains: string applinks:hebrewbible.app" "platforms/ios/Hebrew Bible Study/Hebrew Bible StudyRelease.entitlements" || true
 
       - name: Bulld ios platform artifact
         run: |
