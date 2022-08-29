@@ -67,7 +67,7 @@ jobs:
 
       - name: Set push notification capability
         run: |
-          /usr/libexec/PlistBuddy -c "Add aps-environment string development" "platforms/ios/Hebrew Bible Study/Hebrew Bible StudyRelease.entitlements" || true
+          /usr/libexec/PlistBuddy -c "Add aps-environment string production" "platforms/ios/Hebrew Bible Study/Hebrew Bible StudyRelease.entitlements" || true
           /usr/libexec/PlistBuddy -c "Add :com.apple.developer.applesignin array" "platforms/ios/Hebrew Bible Study/Hebrew Bible StudyRelease.entitlements" || true
           /usr/libexec/PlistBuddy -c "Add :com.apple.developer.applesignin: string Default" "platforms/ios/Hebrew Bible Study/Hebrew Bible StudyRelease.entitlements" || true
           /usr/libexec/PlistBuddy -c "Add :com.apple.developer.associated-domains array" "platforms/ios/Hebrew Bible Study/Hebrew Bible StudyRelease.entitlements" || true
