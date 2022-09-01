@@ -73,15 +73,21 @@ jobs:
           /usr/libexec/PlistBuddy -c "Add :com.apple.developer.associated-domains array" "platforms/ios/Hebrew Bible Study/Hebrew Bible StudyRelease.entitlements" || true
           /usr/libexec/PlistBuddy -c "Add :com.apple.developer.associated-domains: string applinks:hebrew-bible.com" "platforms/ios/Hebrew Bible Study/Hebrew Bible StudyRelease.entitlements" || true
           /usr/libexec/PlistBuddy -c "Add :com.apple.developer.associated-domains: string applinks:hebrewbible.app" "platforms/ios/Hebrew Bible Study/Hebrew Bible StudyRelease.entitlements" || true
+          cat "platforms/ios/Hebrew Bible Study/Hebrew Bible StudyRelease.entitlements"
 
       - name: Bulld ios platform artifact
         run: |
           ionic cordova build ios --prod --release --buildFlag="-allowProvisioningUpdates" --device --buildConfig build.json
 
-      - name: Upload to TestFlight
-        uses: Apple-Actions/upload-testflight-build@v1
+      - uses: actions/upload-artifact@v3
         with:
-          app-path: "./platforms/ios/build/device/Hebrew Bible Study.ipa"
-          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
-          api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
-          api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+          name: ipa
+          path: "platforms/ios/build/device/Hebrew Bible Study.ipa"
+
+      # - name: Upload to TestFlight
+      #   uses: Apple-Actions/upload-testflight-build@v1
+      #   with:
+      #     app-path: "./platforms/ios/build/device/Hebrew Bible Study.ipa"
+      #     issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+      #     api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+      #     api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
