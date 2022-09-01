@@ -91,10 +91,10 @@ jobs:
           name: ipa
           path: "platforms/ios/build/device/Hebrew Bible Study.ipa"
 
-      # - name: Upload to TestFlight
-      #   uses: Apple-Actions/upload-testflight-build@v1
-      #   with:
-      #     app-path: "./platforms/ios/build/device/Hebrew Bible Study.ipa"
-      #     issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
-      #     api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
-      #     api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+      - name: Upload to TestFlight
+        uses: Apple-Actions/upload-testflight-build@v1
+        with:
+          app-path: "./platforms/ios/build/device/Hebrew Bible Study.ipa"
+          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
