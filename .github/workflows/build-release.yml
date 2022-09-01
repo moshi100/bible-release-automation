@@ -63,7 +63,7 @@ jobs:
         run: npm install --force
 
       - name: Prepare ios platform
-        run: ionic cordova prepare ios --no-interactive --confirm --no-build
+        run: ionic cordova prepare ios --no-interactive --confirm --no-build --verbose
 
       - name: Set push notification capability
         run: |
