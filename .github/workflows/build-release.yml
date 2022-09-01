@@ -67,16 +67,16 @@ jobs:
 
       - name: Set push notification capability
         run: |
-          # /usr/libexec/PlistBuddy -c "Add aps-environment string production" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
-          # /usr/libexec/PlistBuddy -c "Add :com.apple.developer.applesignin array" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
-          # /usr/libexec/PlistBuddy -c "Add :com.apple.developer.applesignin: string Default" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
-          # /usr/libexec/PlistBuddy -c "Add :com.apple.developer.associated-domains array" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
-          # /usr/libexec/PlistBuddy -c "Add :com.apple.developer.associated-domains: string applinks:hebrew-bible.com" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
-          # /usr/libexec/PlistBuddy -c "Add :com.apple.developer.associated-domains: string applinks:hebrewbible.app" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
+          /usr/libexec/PlistBuddy -c "Add aps-environment string production" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
+          /usr/libexec/PlistBuddy -c "Add :com.apple.developer.applesignin array" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
+          /usr/libexec/PlistBuddy -c "Add :com.apple.developer.applesignin: string Default" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
+          /usr/libexec/PlistBuddy -c "Add :com.apple.developer.associated-domains array" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
+          /usr/libexec/PlistBuddy -c "Add :com.apple.developer.associated-domains: string applinks:hebrew-bible.com" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
+          /usr/libexec/PlistBuddy -c "Add :com.apple.developer.associated-domains: string applinks:hebrewbible.app" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
           # ionic cordova plugin add phonegap-plugin-push
           ls -lh "platforms/ios/Hebrew Bible Study"
           # echo "**********Hebrew Bible Study.entitlements**********"
-          # cat "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements"
+          cat "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements"
           echo "**********Entitlements-Debug.plist**********"
           cat "platforms/ios/Hebrew Bible Study/Entitlements-Debug.plist"
           echo "**********Entitlements-Release.plist**********"
