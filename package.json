@@ -134,6 +134,7 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-keyboard": {},
       "com.darktalker.cordova.screenshot": {},
+      "phonegap-plugin-push": {},
       "cordova-plugin-apprate": {},
       "cordova-plugin-app-version": {},
       "cordova-plugin-deeplinks": {},
