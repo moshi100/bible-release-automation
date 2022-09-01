@@ -76,7 +76,7 @@ jobs:
           # ionic cordova plugin add phonegap-plugin-push
           ls -lh "platforms/ios/Hebrew Bible Study"
           # echo "**********Hebrew Bible Study.entitlements**********"
-          cat "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements"
+          # cat "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements"
           echo "**********Entitlements-Debug.plist**********"
           cat "platforms/ios/Hebrew Bible Study/Entitlements-Debug.plist"
           echo "**********Entitlements-Release.plist**********"
