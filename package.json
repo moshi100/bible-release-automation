@@ -69,6 +69,7 @@
     "ios-deploy": "^1.11.4",
     "jquery": "^3.5.1",
     "klaw": "^4.0.1",
+    "localize-router": "2.0.0-RC.3",
     "localize-router-http-loader": "^1.0.2",
     "ngx-quill": "^16.2.1",
     "properties-parser": "^0.3.1",

@@ -44,7 +44,6 @@ jobs:
       - name: Install ionic cli
         run: |
           npm install -g @ionic/cli
-          npm install -g cordova
 
       - name: Cache node modules
         id: cache-nodemodules
@@ -64,7 +63,7 @@ jobs:
         run: npm install --force
 
       - name: Prepare ios platform
-        run: cordova prepare ios --no-interactive --confirm --no-build --verbose
+        run: ionic cordova prepare ios --no-interactive --confirm --no-build --verbose
 
       - name: Set push notification capability
         run: |
