@@ -117,6 +117,30 @@
                 </dict>
             </array>
         </config-file>
+        <config-file parent="aps-environment" target="*.entitlements">
+            <string>production</string>
+        </config-file>
+        <config-file parent="aps-environment" target="**/Entitlements-Debug.plist">
+            <string>production</string>
+        </config-file>
+        <config-file parent="aps-environment" target="**/Entitlements-Release.plist">
+            <string>production</string>
+        </config-file>
+        <config-file parent="com.apple.developer.applesignin" target="*.entitlements">
+            <array>
+                <string>Default</string>
+            </array>
+        </config-file>
+        <config-file parent="com.apple.developer.applesignin" target="**/Entitlements-Debug.plist">
+            <array>
+                <string>Default</string>
+            </array>
+        </config-file>
+        <config-file parent="com.apple.developer.applesignin" target="**/Entitlements-Release.plist">
+            <array>
+                <string>Default</string>
+            </array>
+        </config-file>
         <icon height="144" src="resources/ios/icon/icon-72@2x.png" width="144" />
         <icon height="57" src="resources/ios/icon/icon.png" width="57" />
         <icon height="20" src="resources/ios/icon/icon-20.png" width="20" />
