@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ionicframework.biblecommentary" version="3.1.50" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Hebrew Bible Study</name>
+<widget id="com.mishnah.studycommentary" version="3.1.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Mishnah Study</name>
     <description>
       The Bible Study app offered free with commentary like Rashi, Sforno and Onkelos.
     </description>
-    <author email="info@hebrewbible.app" href="https://www.hebrewbible.app">
+    <author email="info@hebrewbible.app" href="https://www.mishnah.app">
       Cohen Apps
     </author>
     <content src="index.html" />
@@ -17,8 +17,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <universal-links>
-        <host event="universalLinksFunc" name="hebrew-bible.com" scheme="https" />
-        <host event="universalLinksFunc" name="hebrewbible.app" scheme="https" />
+        <host event="universalLinksFunc" name="mishnah.app" scheme="https" />
     </universal-links>
     <preference name="KeyboardResize" value="true" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
@@ -90,7 +89,7 @@
             <string>This app requires Bluetooth library access to function properly.</string>
         </config-file>
         <config-file parent="GADApplicationIdentifier" platform="ios" target="*-Info.plist">
-            <string>ca-app-pub-3940256099942544~1458002511</string>
+            <string>ca-app-pub-1974267206542018~8089218792</string>
         </config-file>
         <config-file mode="add" parent="ITSAppUsesNonExemptEncryption" target="*-Info.plist">
             <false />
@@ -109,10 +108,10 @@
                     <key>CFBundleURLIconFile</key>
                     <string />
                     <key>CFBundleURLName</key>
-                    <string>Hebrew Bible</string>
+                    <string>Mishnah</string>
                     <key>CFBundleURLSchemes</key>
                     <array>
-                        <string>com.ionicframework.biblecommentary</string>
+                        <string>com.mishnah.studycommentary</string>
                     </array>
                 </dict>
             </array>
