@@ -59,7 +59,7 @@ jobs:
             ${{ runner.os }}-
 
       - name: Install Dependencies
-        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+        # if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: npm install --force
 
       - name: Prepare ios platform
