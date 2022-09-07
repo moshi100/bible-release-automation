@@ -3,10 +3,10 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - master
+      - release/tanach_ios
   pull_request:
     branches:
-      - master
+      - release/tanach_ios
 
 env:
   APP_NAME: "Hebrew Bible Study"
