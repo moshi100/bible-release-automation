@@ -1,0 +1,100 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+env:
+  APP_NAME: "Hebrew Bible Study"
+
+jobs:
+  build:
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download Provisioning Profiles
+        id: provisioning-profiles
+        uses: apple-actions/download-provisioning-profiles@v1
+        with:
+          bundle-id: "com.ionicframework.biblecommentary"
+          profile-type: "IOS_APP_STORE"
+          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+
+      - name: List provisioning profiles
+        run: echo ${{ steps.provisioning-profiles.outputs.profiles }}
+
+      - name: Import code signing certificate
+        uses: Apple-Actions/import-codesign-certs@v1
+        with:
+          p12-file-base64: ${{ secrets.CERTIFICATES_FILE_BASE64 }}
+          p12-password: ${{ secrets.CERTIFICATES_PASSWORD }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "npm"
+
+      - name: Install ionic cli
+        run: |
+          npm install -g @ionic/cli
+
+      - name: Cache node modules
+        id: cache-nodemodules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install Dependencies
+        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+        run: npm install --force
+
+      - name: Prepare ios platform
+        run: ionic cordova prepare ios --no-interactive --confirm --no-build --verbose
+
+#       - name: Set push notification capability
+#         run: |
+#           /usr/libexec/PlistBuddy -c "Add aps-environment string production" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
+#           /usr/libexec/PlistBuddy -c "Add :com.apple.developer.applesignin array" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
+#           /usr/libexec/PlistBuddy -c "Add :com.apple.developer.applesignin: string Default" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
+#           /usr/libexec/PlistBuddy -c "Add :com.apple.developer.associated-domains array" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
+#           /usr/libexec/PlistBuddy -c "Add :com.apple.developer.associated-domains: string applinks:hebrew-bible.com" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
+#           /usr/libexec/PlistBuddy -c "Add :com.apple.developer.associated-domains: string applinks:hebrewbible.app" "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements" || true
+#           # ionic cordova plugin add phonegap-plugin-push
+#           # ls -lh "platforms/ios/Hebrew Bible Study"
+#           # echo "**********Hebrew Bible Study.entitlements**********"
+#           # cat "platforms/ios/Hebrew Bible Study/Hebrew Bible Study.entitlements"
+#           # echo "**********Entitlements-Debug.plist**********"
+#           # cat "platforms/ios/Hebrew Bible Study/Entitlements-Debug.plist"
+#           # echo "**********Entitlements-Release.plist**********"
+#           # cat "platforms/ios/Hebrew Bible Study/Entitlements-Release.plist"
+
+      - name: Bulld ios platform artifact
+        run: |
+          ionic cordova build ios --prod --release --buildFlag="-allowProvisioningUpdates" --device --buildConfig build.json
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ipa
+          path: "platforms/ios/build/device/Hebrew Bible Study.ipa"
+
+      - name: Upload to TestFlight
+        uses: Apple-Actions/upload-testflight-build@v1
+        with:
+          app-path: "./platforms/ios/build/device/Hebrew Bible Study.ipa"
+          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
