@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "891915408830",
+    "firebase_url": "https://bible-commentary-13d9a.firebaseio.com",
+    "project_id": "bible-commentary-13d9a",
+    "storage_bucket": "bible-commentary-13d9a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891915408830:android:8bc5469f33a5d3f6",
+        "android_client_info": {
+          "package_name": "com.bible.studycommentary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891915408830-npsh56jkf499lu8ibtljbuvs6cp73i25.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7skUDgQgPABE2Mh9-UadldZ2aLZ96lyQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
