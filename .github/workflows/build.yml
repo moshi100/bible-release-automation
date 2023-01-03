@@ -51,7 +51,7 @@ jobs:
 
       - name: zipalign App Bundle
         working-directory: ./platforms/android/
-        run: zipalign -v 4 app\build\outputs\bundle\release\app-release.aab app.aab 
+        run: zipalign -v 4 app/build/outputs/bundle/release/app-release.aab app.aab 
 
       - name: Upload release bundle
         uses: actions/upload-artifact@v1
