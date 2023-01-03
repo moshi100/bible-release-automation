@@ -46,9 +46,9 @@ jobs:
         working-directory: .
         run: jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore biblecommentary.keystore -storepass $STORE_PASS_ANDROID -keypass $KEY_PASS_ANDROID platforms/android/app/build/outputs/bundle/release/app-release.aab biblecommentary 
 
-      - name: zipalign App Bundle
-        working-directory: ./platforms/android/
-        run: zipalign -v 4 app\build\outputs\bundle\release\app-release.aab app.aab 
+  #    - name: zipalign App Bundle
+   #     working-directory: ./platforms/android/
+   #     run: zipalign -v 4 app\build\outputs\bundle\release\app-release.aab app.aab 
 
       - name: Upload release bundle
         uses: actions/upload-artifact@v1
