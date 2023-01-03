@@ -1,0 +1,72 @@
+name: Build and Deploy to Google Play
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - release/mishnah_android
+      - release/talmod_yerushalmi_android
+      - release/talmud_bavli_android
+      - release/tanach_android
+      - release/tanach_offline_android
+
+jobs:
+  build:
+    env:
+      STORE_PASS_ANDROID: ${{ secrets.STORE_PASS_ANDROID }}
+      KEY_PASS_ANDROID: ${{ secrets.KEY_PASS_ANDROID }}
+      SERVICE_ACCOUNT_ANDROID: ${{ secrets.SERVICE_ACCOUNT_ANDROID }}
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Install Cordova
+        run: npm install -g cordova
+
+      - name: Install Ionic
+        run: npm install -g @ionic/cli
+
+      - name: Install app dependencies
+        run: npm install
+
+      - name: Add Android platform
+        run: ionic cordova platform add android
+
+      - name: Build
+        run: ionic cordova build android --prod --release
+
+      - name: Sign App Bundle
+        working-directory: .
+        run: jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore biblecommentary.keystore -storepass $STORE_PASS_ANDROID -keypass $KEY_PASS_ANDROID platforms/android/app/build/outputs/bundle/release/app-release.aab biblecommentary
+
+      - name: Install zipalign
+        run: sudo apt install -y zipalign
+
+      - name: zipalign App Bundle
+        working-directory: ./platforms/android/
+        run: zipalign -v 4 app/build/outputs/bundle/release/app-release.aab app/build/outputs/bundle/release/final.aab
+
+      - name: Save SERVICE_ACCOUNT_ANDROID
+        run: echo $SERVICE_ACCOUNT_ANDROID >> credential.json
+
+      - name: Install python dependencies
+        run: pip install androidpublisher
+
+      # --track [internal|alpha|beta|production|rollout]: [default: internal]
+      # --aab-file FILE: [default: app.aab]
+      # --json-key FILE: [default: credential.json]
+
+      - name: Publish App Bundle
+        working-directory: .
+        run: (androidpublisher upload com.bible.studycommentary --aab-file platforms/android/app/build/outputs/bundle/release/final.aab) || echo 'deploy failure'
