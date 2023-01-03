@@ -2,7 +2,6 @@ import argparse
 import sys
 import httplib2
 import os
-from apiclient import sample_tools
 from oauth2client import client
 
 import mimetypes
