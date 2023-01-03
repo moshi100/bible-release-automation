@@ -39,7 +39,7 @@ jobs:
       - name: Add Android platform
         run: ionic cordova platform add android
 
-      - name: Cordova Build
+      - name: Build
         run: ionic cordova build android --prod --release
 
       - name: Sign App Bundle
@@ -60,10 +60,7 @@ jobs:
           path: platforms/android/app/build/outputs/bundle/release/final.aab
 
       - name: Install python dependencies
-        run: pip install oauth2client==1.5.2 && pip install google-api-python-client
-
-      - name: Save SERVICE_ACCOUNT_ANDROID to key.json
-        run:  echo $SERVICE_ACCOUNT_ANDROID >> key.json
+        run: pip install oauth2client==1.5.2
        
       - name: Publish App Bundle
         working-directory: .

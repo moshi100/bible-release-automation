@@ -1,5 +1,6 @@
 import argparse
 import sys
+import httplib2
 import os
 from apiclient import sample_tools
 from oauth2client import client
@@ -37,20 +38,6 @@ def main(argv):
 
   # Process flags and read their values.
   flags = argparser.parse_args()
-
-
-# New method
-  '''
-    service, flags = sample_tools.init(
-      argv,
-      'androidpublisher',
-      'v3',
-      __doc__,
-      __file__,
-       parents=[argparser],
-      scope='https://www.googleapis.com/auth/androidpublisher')
-  '''
-
 
   # Process flags and read their values.
   package_name = flags.package_name
