@@ -8,7 +8,7 @@ mimetypes.add_type('application/octet-stream', '.aab')
 
 TRACK = 'production'  # Can be 'alpha', beta', 'production' or 'rollout'
 SERVICE_ACCOUNT_EMAIL = (
-    'ENTER_YOUR_SERVICE_ACCOUNT_EMAIL_HERE@developer.gserviceaccount.com')
+    'google-play-publisher@api-7797719130150548635-666544.iam.gserviceaccount.com')
 
 # Declare command-line flags.
 argparser = argparse.ArgumentParser(add_help=False)

@@ -63,5 +63,5 @@ jobs:
         run: pip install oauth2client && pip install google-api-python-client
 
       - name: Publish App Bundle
-        working-directory: ./platforms/android/app/build/outputs/bundle/release
-        run: python publish_to_google_play.py com.bible.studycommentary final.aab
+        working-directory: .
+        run: python publish_to_google_play.py com.bible.studycommentary platforms/android/app/build/outputs/bundle/release/final.aab
