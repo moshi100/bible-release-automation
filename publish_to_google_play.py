@@ -1,8 +1,10 @@
 import argparse
 import sys
-import httplib2
 import os
-from oauth2client import client
+
+from googleapiclient.discovery import build
+from google.oauth2 import service_account
+
 
 import mimetypes
 mimetypes.add_type('application/octet-stream', '.aab')
@@ -10,6 +12,9 @@ mimetypes.add_type('application/octet-stream', '.aab')
 TRACK = 'production'  # Can be 'alpha', beta', 'production' or 'rollout'
 SERVICE_ACCOUNT_EMAIL = (
     'google-play-publisher@api-7797719130150548635-666544.iam.gserviceaccount.com')
+
+SERVICE_ACCOUNT_KEY = os.getenv('SERVICE_ACCOUNT_ANDROID') 
+SERVICE_ACCOUNT_FILE = 'gcp_service_account.json'
 
 # Declare command-line flags.
 argparser = argparse.ArgumentParser(add_help=False)
@@ -23,17 +28,24 @@ argparser.add_argument('file',
 
 def main(argv):
   # Authenticate and construct service.
-
-  key = os.getenv('SERVICE_ACCOUNT_ANDROID')
-
-
+  '''
   credentials = client.SignedJwtAssertionCredentials(
       SERVICE_ACCOUNT_EMAIL,
-      key,
+      SERVICE_ACCOUNT_KEY,
       scope='https://www.googleapis.com/auth/androidpublisher')
+
+  '''
+
+
+  SCOPES = ['https://www.googleapis.com/auth/androidpublisher']
+
+  credentials = service_account.Credentials.from_service_account_file(
+        SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+
   http = httplib2.Http()
   http = credentials.authorize(http)
   service = build('androidpublisher', 'v2', http=http)
+
 
   # Process flags and read their values.
   flags = argparser.parse_args()

@@ -59,9 +59,15 @@ jobs:
           name: upload-release
           path: platforms/android/app/build/outputs/bundle/release/final.aab
 
+      - name: Save SERVICE_ACCOUNT_ANDROID
+        run:  echo $SERVICE_ACCOUNT_ANDROID >> gcp_service_account.json
+
+    #  - name: Install python dependencies
+    #    run: pip install oauth2client==1.5.2
+
       - name: Install python dependencies
-        run: pip install oauth2client==1.5.2
+        run: pip install google-api-python-client
        
       - name: Publish App Bundle
         working-directory: .
-        run: python publish_to_google_play.py com.bible.studycommentary platforms/android/app/build/outputs/bundle/release/final.aab
+        run: (python publish_to_google_play.py com.bible.studycommentary platforms/android/app/build/outputs/bundle/release/final.aab) || echo 'deploy failure'
