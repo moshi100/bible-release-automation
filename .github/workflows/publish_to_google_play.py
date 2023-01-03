@@ -1,7 +1,6 @@
 import argparse
-from googleapiclient.discovery import build
-import httplib2
-import os
+import sys
+from apiclient import sample_tools
 from oauth2client import client
 
 import mimetypes
@@ -21,30 +20,31 @@ argparser.add_argument('file',
                        help='The path to the file to upload.')
 
 
-def main():
-  # Load the key in PKCS 12 format that you downloaded from the Google APIs
-  # Console when you created your Service account.
-  # f = file('key.p12', 'rb')
-  # key = f.read()
-  key = os.getenv('SERVICE_ACCOUNT_ANDROID')
- # f.close()
+def main(argv):
+  # Authenticate and construct service.
 
-  # Create an httplib2.Http object to handle our HTTP requests and authorize it
-  # with the Credentials. Note that the first parameter, service_account_name,
-  # is the Email address created for the Service account. It must be the email
-  # address associated with the key that was created.
+  key = os.getenv('SERVICE_ACCOUNT_ANDROID')
   credentials = client.SignedJwtAssertionCredentials(
       SERVICE_ACCOUNT_EMAIL,
       key,
       scope='https://www.googleapis.com/auth/androidpublisher')
   http = httplib2.Http()
   http = credentials.authorize(http)
-
   service = build('androidpublisher', 'v2', http=http)
-
   # Process flags and read their values.
   flags = argparser.parse_args()
 
+# New method
+  service, flags = sample_tools.init(
+      argv,
+      'androidpublisher',
+      'v3',
+      __doc__,
+      __file__,
+       parents=[argparser],
+      scope='https://www.googleapis.com/auth/androidpublisher')
+
+  # Process flags and read their values.
   package_name = flags.package_name
   apk_file = flags.apk_file
 
@@ -64,10 +64,17 @@ def main():
         editId=edit_id,
         track=TRACK,
         packageName=package_name,
-        body={u'versionCodes': [apk_response['versionCode']]}).execute()
+        body={u'releases': [{
+            u'name': u'My first API release with release notes',
+            u'versionCodes': [str([apk_response['versionCode']])],
+            u'releaseNotes': [
+                {u'recentChanges': u'Apk recent changes in en-US'},
+            ],
+            u'status': u'completed',
+        }]}).execute()
 
-    print( 'Track %s is set for version code(s) %s' % (
-        track_response['track'], str(track_response['versionCodes'])))
+    print ('Track %s is set with releases: %s' % (
+        track_response['track'], str(track_response['releases'])))
 
     commit_request = service.edits().commit(
         editId=edit_id, packageName=package_name).execute()
@@ -79,4 +86,4 @@ def main():
            'application to re-authorize')
 
 if __name__ == '__main__':
-  main()
+  main(sys.argv)
