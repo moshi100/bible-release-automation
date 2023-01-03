@@ -25,15 +25,21 @@ def main(argv):
   # Authenticate and construct service.
 
   key = os.getenv('SERVICE_ACCOUNT_ANDROID')
-  credentials = client.SignedJwtAssertionCredentials(
+
+  '''
+    credentials = client.SignedJwtAssertionCredentials(
       SERVICE_ACCOUNT_EMAIL,
       key,
       scope='https://www.googleapis.com/auth/androidpublisher')
   http = httplib2.Http()
   http = credentials.authorize(http)
   service = build('androidpublisher', 'v2', http=http)
+
   # Process flags and read their values.
   flags = argparser.parse_args()
+  '''
+
+
 
 # New method
   service, flags = sample_tools.init(

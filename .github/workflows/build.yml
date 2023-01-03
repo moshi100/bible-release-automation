@@ -62,6 +62,9 @@ jobs:
       - name: Install python dependencies
         run: pip install oauth2client && pip install google-api-python-client
 
+      - name: Save SERVICE_ACCOUNT_ANDROID to client_secrets.json
+        run:  echo $SERVICE_ACCOUNT_ANDROID >> client_secrets.json
+       
       - name: Publish App Bundle
         working-directory: .
         run: python publish_to_google_play.py com.bible.studycommentary platforms/android/app/build/outputs/bundle/release/final.aab
