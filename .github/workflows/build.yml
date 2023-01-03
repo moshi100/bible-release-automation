@@ -44,24 +44,25 @@ jobs:
 
       - name: Sign App Bundle
         working-directory: .
-        run: jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore biblecommentary.keystore -storepass $STORE_PASS_ANDROID -keypass $KEY_PASS_ANDROID platforms/android/app/build/outputs/bundle/release/app-release.aab biblecommentary 
+        run: jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore biblecommentary.keystore -storepass $STORE_PASS_ANDROID -keypass $KEY_PASS_ANDROID platforms/android/app/build/outputs/bundle/release/app-release.aab biblecommentary
 
       - name: Install zipalign
         run: sudo apt install -y zipalign
 
       - name: zipalign App Bundle
         working-directory: ./platforms/android/
-        run: zipalign -v 4 app/build/outputs/bundle/release/app-release.aab app/build/outputs/bundle/release/final.aab 
+        run: zipalign -v 4 app/build/outputs/bundle/release/app-release.aab app/build/outputs/bundle/release/final.aab
 
       - name: Save SERVICE_ACCOUNT_ANDROID
-        run:  echo $SERVICE_ACCOUNT_ANDROID >> gcp_service_account.json
+        run: echo $SERVICE_ACCOUNT_ANDROID >> credential.json
 
-    #  - name: Install python dependencies
-    #    run: pip install oauth2client==1.5.2
+#      - name: Install python dependencies
+#        run: pip install google-api-python-client && pip install oauth2client==1.5.2
 
-      - name: Install python dependencies
-        run: pip install google-api-python-client
-       
       - name: Publish App Bundle
         working-directory: .
-        run: (python publish_to_google_play.py com.bible.studycommentary platforms/android/app/build/outputs/bundle/release/final.aab) || echo 'deploy failure'
+        run: (androidpublisher upload com.bible.studycommentary platforms/android/app/build/outputs/bundle/release/final.aab) || echo 'deploy failure'
+
+#      - name: Publish App Bundle
+#        working-directory: .
+#        run: (python publish_to_google_play.py com.bible.studycommentary platforms/android/app/build/outputs/bundle/release/final.aab) || echo 'deploy failure'
