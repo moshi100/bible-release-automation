@@ -51,17 +51,17 @@ jobs:
 
       - name: zipalign App Bundle
         working-directory: ./platforms/android/
-        run: zipalign -v 4 app/build/outputs/bundle/release/app-release.aab app.aab 
+        run: zipalign -v 4 app/build/outputs/bundle/release/app-release.aab app/build/outputs/bundle/release/app-release.aab/final.aab 
 
       - name: Upload release bundle
         uses: actions/upload-artifact@v1
         with:
           name: upload-release
-          path: platforms/android/app/build/outputs/bundle/release/app.aab
+          path: platforms/android/app/build/outputs/bundle/release/final.aab
 
       - name: Install python dependencies
         run: pip install oauth2client
 
       - name: Publish App Bundle
         working-directory: ./platforms/android/app/build/outputs/bundle/release
-        run: python publish_to_google_play.py com.bible.studycommentary app.aab
+        run: python publish_to_google_play.py com.bible.studycommentary final.aab
