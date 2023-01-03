@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "891915408830",
+    "firebase_url": "https://bible-commentary-13d9a.firebaseio.com",
+    "project_id": "bible-commentary-13d9a",
+    "storage_bucket": "bible-commentary-13d9a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891915408830:android:e97e82d72a51089c",
+        "android_client_info": {
+          "package_name": "com.mishnah.studycommentary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891915408830-s7rliqqiuhm4po9uj5jabm967kefe5e4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mishnah.studycommentary",
+            "certificate_hash": "5d64e52ea17f0b89f1b552433d561d4388dc41e6"
+          }
+        },
+        {
+          "client_id": "891915408830-npsh56jkf499lu8ibtljbuvs6cp73i25.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7skUDgQgPABE2Mh9-UadldZ2aLZ96lyQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "891915408830-npsh56jkf499lu8ibtljbuvs6cp73i25.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "891915408830-gfj0b8snjit6dne5b8j27pod3ukq0kbn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ffdfdfsad"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
