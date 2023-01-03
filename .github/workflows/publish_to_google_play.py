@@ -26,7 +26,7 @@ def main():
   # Console when you created your Service account.
   # f = file('key.p12', 'rb')
   # key = f.read()
-  key = os.getenv('SERVICE_ACCOUNT')
+  key = os.getenv('SERVICE_ACCOUNT_ANDROID')
  # f.close()
 
   # Create an httplib2.Http object to handle our HTTP requests and authorize it

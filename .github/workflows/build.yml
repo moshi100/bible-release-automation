@@ -5,8 +5,9 @@ on: [push, pull_request]
 jobs:
   build:
     env:
-      STORE_PASS: ${{ secrets.STORE_PASS }}
-      KEY_PASS: ${{ secrets.KEY_PASS }}
+      STORE_PASS_ANDROID: ${{ secrets.STORE_PASS_ANDROID }}
+      KEY_PASS_ANDROID: ${{ secrets.KEY_PASS_ANDROID }}
+      SERVICE_ACCOUNT_ANDROID: ${{ secrets.SERVICE_ACCOUNT_ANDROID }}
     name: Build
     runs-on: ubuntu-latest
     steps:
@@ -43,7 +44,7 @@ jobs:
 
       - name: Sign App Bundle
         working-directory: .
-        run: jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore biblecommentary.keystore -storepass $STORE_PASS -keypass $KEY_PASS platforms/android/app/build/outputs/bundle/release/app-release.aab biblecommentary 
+        run: jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore biblecommentary.keystore -storepass $STORE_PASS_ANDROID -keypass $KEY_PASS_ANDROID platforms/android/app/build/outputs/bundle/release/app-release.aab biblecommentary 
 
       - name: zipalign App Bundle
         working-directory: ./platforms/android/
