@@ -43,7 +43,7 @@ jobs:
 
       - name: Sign App Bundle
         working-directory: .
-        run: jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore biblecommentary.keystore -storepass STORE_PASS -keypass KEY_PASS platforms/android/app/build/outputs/bundle/release/app-release.aab biblecommentary 
+        run: jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore biblecommentary.keystore -storepass $STORE_PASS -keypass $KEY_PASS platforms/android/app/build/outputs/bundle/release/app-release.aab biblecommentary 
 
       - name: zipalign App Bundle
         working-directory: ./platforms/android/
