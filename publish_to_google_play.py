@@ -26,8 +26,8 @@ def main(argv):
 
   key = os.getenv('SERVICE_ACCOUNT_ANDROID')
 
-  '''
-    credentials = client.SignedJwtAssertionCredentials(
+
+  credentials = client.SignedJwtAssertionCredentials(
       SERVICE_ACCOUNT_EMAIL,
       key,
       scope='https://www.googleapis.com/auth/androidpublisher')
@@ -37,12 +37,11 @@ def main(argv):
 
   # Process flags and read their values.
   flags = argparser.parse_args()
-  '''
-
 
 
 # New method
-  service, flags = sample_tools.init(
+  '''
+    service, flags = sample_tools.init(
       argv,
       'androidpublisher',
       'v3',
@@ -50,6 +49,8 @@ def main(argv):
       __file__,
        parents=[argparser],
       scope='https://www.googleapis.com/auth/androidpublisher')
+  '''
+
 
   # Process flags and read their values.
   package_name = flags.package_name
