@@ -1,6 +1,10 @@
 name: Build and Deploy to Google Play
 
-on: [push, pull_request]
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - pitam
 
 jobs:
   build:
@@ -38,17 +42,16 @@ jobs:
       - name: Cordova Build
         run: ionic cordova build android --prod --release
 
-      - name: Generate the Android App Bundle
-        working-directory: ./platforms/android/
-        run: ./gradlew bundle
-
       - name: Sign App Bundle
         working-directory: .
         run: jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore biblecommentary.keystore -storepass $STORE_PASS_ANDROID -keypass $KEY_PASS_ANDROID platforms/android/app/build/outputs/bundle/release/app-release.aab biblecommentary 
 
-  #    - name: zipalign App Bundle
-   #     working-directory: ./platforms/android/
-   #     run: zipalign -v 4 app\build\outputs\bundle\release\app-release.aab app.aab 
+      - name: Install zipalign
+        run: sudo apt install -y zipalign
+
+      - name: zipalign App Bundle
+        working-directory: ./platforms/android/
+        run: zipalign -v 4 app\build\outputs\bundle\release\app-release.aab app.aab 
 
       - name: Upload release bundle
         uses: actions/upload-artifact@v1
