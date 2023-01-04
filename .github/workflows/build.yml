@@ -69,4 +69,4 @@ jobs:
 
       - name: Publish App Bundle
         working-directory: .
-        run: (androidpublisher upload com.bible.studycommentary --aab-file platforms/android/app/build/outputs/bundle/release/final.aab) || echo 'deploy failure'
+        run: androidpublisher upload com.talmudyerushalmi.studycommentary --aab-file platforms/android/app/build/outputs/bundle/release/final.aab
