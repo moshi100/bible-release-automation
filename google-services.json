@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:891915408830:android:8bc5469f33a5d3f6",
+        "mobilesdk_app_id": "1:891915408830:android:cfc78169b758f50d",
         "android_client_info": {
-          "package_name": "com.bible.studycommentary"
+          "package_name": "com.talmudyerushalmi.studycommentary"
         }
       },
       "oauth_client": [
