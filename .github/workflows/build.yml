@@ -45,7 +45,7 @@ jobs:
         run: ionic cordova platform add android
 
       - name: Disable Crashlytics Upload
-        run: echo -e 'android { defaultConfig { buildTypes { release { firebaseCrashlytics {  \nmappingFileUploadEnabled false\nnativeSymbolUploadEnabled true\nunstrippedNativeLibsDir file("build/app/intermediates/merged_native_libs/release/out/lib")\n }\nndk.debugSymbolLevel = { FULL }\n } } } }' >> platforms/android/app/build-extras.gradle
+        run: echo -e 'android { defaultConfig { buildTypes { release { firebaseCrashlytics {  \nmappingFileUploadEnabled false\nnativeSymbolUploadEnabled true\nunstrippedNativeLibsDir file("build/app/intermediates/merged_native_libs/release/out/lib")\n }\n//ndk.debugSymbolLevel = { FULL }\n } } } }' >> platforms/android/app/build-extras.gradle
 
 
       - name: Build
