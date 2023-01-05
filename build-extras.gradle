@@ -2,12 +2,14 @@ android {
     defaultConfig {
         buildTypes {
             release {
+                minifyEnabled false
+                shrinkResources false
                 firebaseCrashlytics {
                     mappingFileUploadEnabled false
-                    nativeSymbolUploadEnabled true
-                    unstrippedNativeLibsDir file("app/build/intermediates/merged_native_libs/release/out/lib")
+                    //   nativeSymbolUploadEnabled true
+                    //   unstrippedNativeLibsDir file("app/build/intermediates/merged_native_libs/release/out/lib")
                 }
-//ndk.debugSymbolLevel = { FULL }
+                //ndk.debugSymbolLevel = { FULL }
             }
         }
     }
