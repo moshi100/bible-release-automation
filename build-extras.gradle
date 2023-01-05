@@ -5,7 +5,7 @@ android {
                 firebaseCrashlytics {
                     mappingFileUploadEnabled false
                     nativeSymbolUploadEnabled true
-                    unstrippedNativeLibsDir file("build/app/intermediates/merged_native_libs/release/out/lib")
+                    unstrippedNativeLibsDir file("app/build/intermediates/merged_native_libs/release/out/lib")
                 }
 //ndk.debugSymbolLevel = { FULL }
             }
