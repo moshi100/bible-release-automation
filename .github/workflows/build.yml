@@ -9,7 +9,6 @@ on:
       - release/talmud_bavli_android
       - release/tanach_android
       - release/tanach_offline_android
-      - master
 
 
 jobs:
