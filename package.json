@@ -136,7 +136,7 @@
         "ANDROID_PLAY_SERVICES_AUTH_VERSION": "20.2.0",
         "ANDROID_FIREBASE_ANALYTICS_VERSION": "21.0.0",
         "ANDROID_FIREBASE_MESSAGING_VERSION": "23.0.5",
-        "ANDROID_FIREBASE_CONFIG_VERSION": "21.1.0",
+        "ANDROID_FIREBASE_CONFIG_VERSION": "21.2.0",
         "ANDROID_FIREBASE_PERF_VERSION": "20.0.6",
         "ANDROID_FIREBASE_AUTH_VERSION": "21.0.4",
         "ANDROID_FIREBASE_INAPPMESSAGING_VERSION": "20.1.2",
@@ -173,7 +173,8 @@
         "FACEBOOK_ANDROID_SDK_VERSION": "11.3.0",
         "FACEBOOK_IOS_SDK_VERSION": "11.1.0",
         "FACEBOOK_BROWSER_SDK_VERSION": "v11.0"
-      }
+      },
+      "cordova-plugin-proguard": {}
     },
     "platforms": [
       "android"
