@@ -4,10 +4,7 @@ android {
             release {
                 firebaseCrashlytics {
                     mappingFileUploadEnabled false
-                    nativeSymbolUploadEnabled true
-                    unstrippedNativeLibsDir file("app/build/intermediates/merged_native_libs/release/out/lib")
                 }
-//ndk.debugSymbolLevel = { FULL }
             }
         }
     }
