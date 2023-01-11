@@ -76,6 +76,7 @@
         <preference name="AndroidWindowSplashScreenAnimatedIcon" value="resources/android/splash/drawable-port-xhdpi-screen.png" />
         <preference name="AndroidWindowSplashScreenAnimatedIcon" value="resources/android/splash/drawable-port-xxhdpi-screen.png" />
         <preference name="AndroidWindowSplashScreenAnimatedIcon" value="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
+        <preference name="AndroidWindowSplashScreenBackground" value="#344066" />
         <icon background="resources/android/icon/ldpi-background.png" density="ldpi" foreground="resources/android/icon/ldpi-foreground.png" />
         <icon background="resources/android/icon/mdpi-background.png" density="mdpi" foreground="resources/android/icon/mdpi-foreground.png" />
         <icon background="resources/android/icon/hdpi-background.png" density="hdpi" foreground="resources/android/icon/hdpi-foreground.png" />
