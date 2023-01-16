@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.bible.studycommentary" version="30.3.33" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.bible.studycommentary" version="30.3.42" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Hebrew Bible Study</name>
     <description>
       The Bible Study app offered free with commentary like Rashi, Sforno and Onkelos.
@@ -51,6 +51,7 @@
         <allow-intent href="market:*" />
         <preference name="android-minSdkVersion" value="22" />
         <preference name="android-targetSdkVersion" value="31" />
+        <preference name="android-compileSdkVersion " value="31" />
         <preference name="resizeOnFullScreen" value="false" />
         <resource-file src="GTM-NNCGVTS.json" target="assets/containers/GTM-NNCGVTS.json" />
         <resource-file src="resources/android/notifications/drawable-mdpi/ic_stat_favicon.png" target="app/src/main/res/drawable-mdpi/notification_icon.png" />
