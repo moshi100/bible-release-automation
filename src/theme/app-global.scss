@@ -423,3 +423,9 @@ ion-popover.size-width-80 {
     [dir=rtl] & { right: calc(50% - 90px/2); }
   }
 }
+
+.ion-page {
+  position: unset;
+  height: 100%;
+  width: 100%;
+}
