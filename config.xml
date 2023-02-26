@@ -83,6 +83,9 @@
         <icon background="resources/android/icon/xhdpi-background.png" density="xhdpi" foreground="resources/android/icon/xhdpi-foreground.png" />
         <icon background="resources/android/icon/xxhdpi-background.png" density="xxhdpi" foreground="resources/android/icon/xxhdpi-foreground.png" />
         <icon background="resources/android/icon/xxxhdpi-background.png" density="xxxhdpi" foreground="resources/android/icon/xxxhdpi-foreground.png" />
+        <preference name="AndroidWindowSplashScreenBackground" value="#27396D" />
+        <preference name="AndroidWindowSplashScreenIconBackgroundColor" value="#27396D" />
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="resources/android/splash/splash.png" />
     </platform>
     <platform name="ios">
         <resource-file src="GTM-NNCGVTS.json" />
