@@ -62,6 +62,9 @@ jobs:
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: npm install --force
 
+      - name: Add ios platform
+        run: ionic cordova platform add ios
+
       - name: Prepare ios platform
         run: ionic cordova prepare ios --no-interactive --confirm --no-build --verbose
 
