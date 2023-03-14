@@ -58,9 +58,19 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
+      - name: remove package-lock.json file
+        run: rm package-lock.json
+
       - name: Install Dependencies
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: npm install --force
+
+      - name: Add ios platform
+        run: ionic cordova platform add ios
+
+      - name: install pod
+        run: cd platform/ios
+        run: pod install
 
       - name: Prepare ios platform
         run: ionic cordova prepare ios --no-interactive --confirm --no-build --verbose
