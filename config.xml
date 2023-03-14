@@ -75,6 +75,7 @@
         <resource-file src="GTM-NNCGVTS.json" />
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <hook src="hooks/firebaseDeploymentTargetFix.js" type="after_prepare" />
         <config-file parent="SKAdNetworkItems" platform="ios" target="*-Info.plist">
             <array>
                 <dict>

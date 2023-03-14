@@ -66,14 +66,10 @@ jobs:
         run: npm install --force
 
       - name: Add ios platform
-        run: ionic cordova platform add ios
-
-      - name: install pod
-        run: cd platform/ios
-        run: pod install
+        run: cordova platform add ios
 
       - name: Prepare ios platform
-        run: ionic cordova prepare ios --no-interactive --confirm --no-build --verbose
+        run: cordova prepare ios
 
 #       - name: Set push notification capability
 #         run: |
