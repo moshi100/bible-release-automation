@@ -61,6 +61,9 @@ jobs:
       - name: remove package-lock.json file
         run: rm package-lock.json
 
+      - name: remove www folder
+        run: rm -rf www/
+
       - name: Install Dependencies
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: npm install --force
