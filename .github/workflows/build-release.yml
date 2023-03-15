@@ -72,7 +72,7 @@ jobs:
         run: ionic cordova platform add ios
 
       - name: Prepare ios platform
-        run: ionic cordova prepare ios
+        run: ionic cordova prepare ios --no-interactive --confirm --no-build --verbose
 
 #       - name: Set push notification capability
 #         run: |
