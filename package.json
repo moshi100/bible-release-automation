@@ -107,7 +107,7 @@
     "com.darktalker.cordova.screenshot": "^0.1.6",
     "cordova-android": "^9.0.0",
     "cordova-browser": "^6.0.0",
-    "cordova-ios": "^5.1.1",
+    "cordova-ios": "^6.2.0",
     "cordova-res": "^0.15.4",
     "cordova-launch-review": "^4.0.1",
     "cordova-plugin-admob-tomitank": "^4.1.2",
